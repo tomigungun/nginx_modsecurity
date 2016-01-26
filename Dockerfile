@@ -84,4 +84,4 @@ RUN chmod +x /etc/init.d/nginx
 
 VOLUME ["/etc/nginx/conf.d", "/var/log/nginx"]
 
-CMD ["nginx"]
+CMD ["nginx", "-g", "daemon off;"]

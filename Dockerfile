@@ -77,7 +77,8 @@ RUN \
 
 WORKDIR /root
 
-COPY nginx /etc/init.d/nginx
+COPY init.d/nginx /etc/init.d/nginx
+COPY logrotate.d/nginx /etc/logrotate.d/nginx
 
 RUN chmod +x /etc/init.d/nginx
 

@@ -22,10 +22,10 @@ WORKDIR /tmp
 # install and build mod_securty
 RUN \
 #  cd /tmp && \
-	git clone https://github.com/SpiderLabs/ModSecurity.git mod_security && \
+	git clone -b nginx_refactoring https://github.com/SpiderLabs/ModSecurity.git mod_security && \
 	cd mod_security && \
 	./autogen.sh && \
-	./configure --enable-standalone-module && \
+	./configure --enable-standalone-module --disable-mlogc && \
 	make
 
 # install and build nginx

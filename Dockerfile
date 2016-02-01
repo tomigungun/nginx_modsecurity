@@ -78,10 +78,12 @@ RUN \
 WORKDIR /root
 
 COPY init.d/nginx /etc/init.d/nginx
+COPY init.d/start-nginx.sh /etc/init.d/start-nginx.sh
 COPY logrotate.d/nginx /etc/logrotate.d/nginx
 
 RUN chmod +x /etc/init.d/nginx
+RUN chmod +x /etc/init.d/start-nginx.sh
 
 VOLUME ["/etc/nginx/conf.d", "/var/log/nginx"]
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/etc/init.d/start-nginx.sh"]
